@@ -1,0 +1,58 @@
+Pale chub	NH-Icon-palechub.png	200	River	Tiny	9am - 4pm
+Crucian carp	NH-Icon-cruciancarp.png	160	River	Small	All day
+Dace	NH-Icon-dace.png	240	River	Medium-small	4pm - 9am
+Carp	NH-Icon-carp.png	300	Pond	Medium-large	All day
+Koi	NH-Icon-koi.png	4,000	Pond	Medium-large	4pm - 9am
+Goldfish	NH-Icon-goldfish.png	1,300	Pond	Tiny	All day
+Pop-eyed goldfish	NH-Icon-popeyedgoldfish.png	1,300	Pond	Tiny	9am - 4pm
+Ranchu goldfish	NH-Icon-ranchugoldfish.png	4,500	Pond	Small	9am - 4pm
+Killifish	NH-Icon-killifish.png	300	Pond	Tiny	All day
+Crawfish	NH-Icon-crawfish.png	200	Pond	Small	All day
+Snapping Turtle	NH-Icon-snappingturtle.png	5,000	River	Large	9pm - 4am
+Tadpole	NH-Icon-tadpole.png	100	Pond	Tiny	All day
+Frog	NH-Icon-frog.png	120	Pond	Small	All day
+Freshwater goby	NH-Icon-freshwatergoby.png	400	River	Small	4pm - 9am
+Catfish	NH-Icon-catfish.png	800	Pond	Medium-large	4pm - 9am
+Giant snakehead	NH-Icon-giantsnakehead.png	5,500	Pond	Large	9am - 4pm
+Bluegill	NH-Icon-bluegill.png	180	River	Small	9am - 4pm
+Black bass	NH-Icon-blackbass.png	400	River	Medium-large	All day
+Tilapia	NH-Icon-tilapia.png	800	River	Medium-small	All day
+Sweetfish	NH-Icon-sweetfish.png	900	River	Medium-small	All day
+Guppy	NH-Icon-guppy.png	1,300	River	Tiny	9am - 4pm
+Nibble fish	NH-Icon-nibblefish.png	1,500	River	Tiny	9am - 4pm
+Angelfish	NH-Icon-angelfish.png	3,000	River	Small	4pm - 9am
+Betta	NH-Icon-betta.png	2,500	River	Small	9am - 4pm
+Neon tetra	NH-Icon-neontetra.png	500	River	Tiny	9am - 4pm
+Rainbowfish	NH-Icon-rainbowfish.png	800	River	Tiny	9am - 4pm
+Piranha	NH-Icon-piranha.png	2,500	River	Small	9am - 4pm & 9pm - 4am
+Arowana	NH-Icon-arowana.png	10,000	River	Medium-large	4pm - 9am
+Dorado	NH-Icon-dorado.png	15,000	River	Large	4am - 9pm
+Gar	NH-Icon-gar.png	6,000	Pond	Huge	4pm - 9am
+Arapaima	NH-Icon-arapaima.png	10,000	River	Huge	4pm - 9am
+Saddled bichir	NH-Icon-saddledbichir.png	4,000	River	Medium-large	9pm - 4am
+Sea horse	NH-Icon-seahorse.png	1,100	Sea	Tiny	All day
+Clown fish	NH-Icon-clownfish.png	650	Sea	Tiny	All day
+Surgeonfish	NH-Icon-surgeonfish.png	1,000	Sea	Small	All day
+Butterfly fish	NH-Icon-butterflyfish.png	1,000	Sea	Small	All day
+Napoleonfish	NH-Icon-napoleonfish.png	10,000	Sea	Huge	4am - 9pm
+Zebra turkeyfish	NH-Icon-zebraturkeyfish.png	500	Sea	Medium-small	All day
+Puffer fish	NH-Icon-pufferfish.png	250	Sea	Medium-small	All day
+Anchovy	NH-Icon-anchovy.png	200	Sea	Small	4am - 9pm
+Horse mackerel	NH-Icon-horsemackerel.png	150	Sea	Small	All day
+Barred knifejaw	NH-Icon-barredknifejaw.png	5,000	Sea	Medium-small	All day
+Sea bass	NH-Icon-seabass.png	400	Sea	Large	All day
+Red snapper	NH-Icon-redsnapper.png	3,000	Sea	Medium-large	All day
+Olive flounder	NH-Icon-oliveflounder.png	800	Sea	Large	All day
+Squid	NH-Icon-squid.png	500	Sea	Medium-small	All day
+Ribbon eel	NH-Icon-ribboneel.png	600	Sea	Thin	All day
+Blue marlin	NH-Icon-bluemarlin.png	10,000	Pier	Huge	All day
+Giant trevally	NH-Icon-gianttrevally.png	4,500	Pier	Large	All day
+Mahi-mahi	NH-Icon-mahimahi.png	6,000	Pier	Large	All day
+Ocean sunfish	NH-Icon-oceansunfish.png	4,000	Sea	Huge with fin	4am - 9pm
+Saw shark	NH-Icon-sawshark.png	12,000	Sea	Huge with fin	4pm - 9am
+Hammerhead shark	NH-Icon-hammerheadshark.png	8,000	Sea	Huge with fin	4pm - 9am
+Great white shark	NH-Icon-greatwhiteshark.png	15,000	Sea	Huge with fin	4pm - 9am
+Whale shark	NH-Icon-whaleshark.png	13,000	Sea	Huge with fin	All day
+Suckerfish	NH-Icon-suckerfish.png	1,500	Sea	Medium with fin	All day
+Barreleye	NH-Icon-barreleye.png	15,000	Sea	Small	9pm - 4am
+Coelacanth	NH-Icon-coelacanth.png	15,000	Sea (Raining)	Huge	All day

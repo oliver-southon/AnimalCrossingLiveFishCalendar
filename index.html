@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-05fQg2vG5bZW8HpL1UZYkfv4d4Wy8i9I9U6z5UvS5nEZ2Q5f5G5n5wCvzmW2xP9" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Animals Crossing Fish Calendar</h1>
+        <div class="row">
+        <div class="col-12">
+            <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-january-tab" data-toggle="tab" href="#nav-january" role="tab" aria-controls="nav-january" aria-selected="true">January</a>
+                <a class="nav-item nav-link" id="nav-february-tab" data-toggle="tab" href="#nav-february" role="tab" aria-controls="nav-february" aria-selected="false">February</a>
+                <a class="nav-item nav-link" id="nav-march-tab" data-toggle="tab" href="#nav-march" role="tab" aria-controls="nav-march" aria-selected="false">March</a>
+                <a class="nav-item nav-link" id="nav-april-tab" data-toggle="tab" href="#nav-april" role="tab" aria-controls="nav-april" aria-selected="false">April</a>
+                <a class="nav-item nav-link" id="nav-may-tab" data-toggle="tab" href="#nav-may" role="tab" aria-controls="nav-may" aria-selected="false">May</a>
+                <a class="nav-item nav-link" id="nav-june-tab" data-toggle="tab" href="#nav-june" role="tab" aria-controls="nav-june" aria-selected="false">June</a>
+                <a class="nav-item nav-link" id="nav-july-tab" data-toggle="tab" href="#nav-july" role="tab" aria-controls="nav-july" aria-selected="false">July</a>
+                <a class="nav-item nav-link" id="nav-august-tab" data-toggle="tab" href="#nav-august" role="tab" aria-controls="nav-august" aria-selected="false">August</a>
+                <a class="nav-item nav-link" id="nav-september-tab" data-toggle="tab" href="#nav-september" role="tab" aria-controls="nav-september" aria-selected="false">September</a>
+                <a class="nav-item nav-link" id="nav-october-tab" data-toggle="tab" href="#nav-october" role="tab" aria-controls="nav-october" aria-selected="false">Octover</a>
+            </div>
+            </nav>
+
+            <div class="tab-content">
+
+                <div class="tab-pane active" id="nav-january">
+                    <table class="table" id="january-table">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Shadow Size</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                </div>
+
+                <div class="tab-pane" id="nav-february">
+
+                </div>
+            </div>
+        </div>
+        </div>
+
+       
+       
+    </div>
+    <script>
+        // JavaScript to handle tab functionality
+            
+        // Get all tab buttons
+        var tabBtns = document.querySelectorAll('.nav-link');
+
+        // Add event listener to each tab button
+        tabBtns.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // Get the current tab button and tab content
+                var currentTabBtn = e.target;
+                var currentTabContent = document.getElementById(currentTabBtn.getAttribute('href').slice(1));
+
+                // Remove active class from all tab buttons and tab contents
+                tabBtns.forEach(function(btn) {
+                    btn.classList.remove('active');
+                });
+                var tabContents = document.querySelectorAll('.tab-pane');
+                tabContents.forEach(function(tab) {
+                    tab.classList.remove('active', 'show');
+                });
+
+                // Add active class to current tab button and tab content
+                currentTabBtn.classList.add('active');
+                currentTabContent.classList.add('active', 'show');
+            });
+        });
+
+
+        // Javascript for table population
+        // Read the CSV file
+        fetch('./newdata.csv')
+            .then(response => response.text())
+            .then(data => {
+                // Parse the CSV data
+                const rows = data.split('\n');
+                const headers = rows[0].split(',');
+
+                // Add the data to the table
+                for (let i = 1; i < rows.length; i++) {
+                    const cells = rows[i].split(',');
+                    const row = document.createElement('tr');
+
+                    for (let j = 0; j < cells.length; j++) {
+                        const cell = document.createElement('td');
+                        cell.innerHTML = cells[j];
+                        row.appendChild(cell);
+                    }
+
+                    document.getElementById('january-table').querySelector('tbody').appendChild(row);
+                }
+            });
+
+
+    </script>
+</body>
+</html>
