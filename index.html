@@ -33,6 +33,7 @@
             <div class="tab-content">
 
                 <div class="tab-pane active" id="nav-january">
+                    <button id="toggle-button" class="btn">Toggle Currently Available Fish / All Fish</button>
                     <table class="table" id="january-table">
                         <thead>
                           <tr>
@@ -41,6 +42,7 @@
                             <th scope="col">Price</th>
                             <th scope="col">Location</th>
                             <th scope="col">Shadow Size</th>
+                            <th scope="col">Time available</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -58,62 +60,7 @@
        
        
     </div>
-    <script>
-        // JavaScript to handle tab functionality
-            
-        // Get all tab buttons
-        var tabBtns = document.querySelectorAll('.nav-link');
-
-        // Add event listener to each tab button
-        tabBtns.forEach(function(btn) {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-
-                // Get the current tab button and tab content
-                var currentTabBtn = e.target;
-                var currentTabContent = document.getElementById(currentTabBtn.getAttribute('href').slice(1));
-
-                // Remove active class from all tab buttons and tab contents
-                tabBtns.forEach(function(btn) {
-                    btn.classList.remove('active');
-                });
-                var tabContents = document.querySelectorAll('.tab-pane');
-                tabContents.forEach(function(tab) {
-                    tab.classList.remove('active', 'show');
-                });
-
-                // Add active class to current tab button and tab content
-                currentTabBtn.classList.add('active');
-                currentTabContent.classList.add('active', 'show');
-            });
-        });
-
-
-        // Javascript for table population
-        // Read the CSV file
-        fetch('./newdata.csv')
-            .then(response => response.text())
-            .then(data => {
-                // Parse the CSV data
-                const rows = data.split('\n');
-                const headers = rows[0].split(',');
-
-                // Add the data to the table
-                for (let i = 1; i < rows.length; i++) {
-                    const cells = rows[i].split(',');
-                    const row = document.createElement('tr');
-
-                    for (let j = 0; j < cells.length; j++) {
-                        const cell = document.createElement('td');
-                        cell.innerHTML = cells[j];
-                        row.appendChild(cell);
-                    }
-
-                    document.getElementById('january-table').querySelector('tbody').appendChild(row);
-                }
-            });
-
-
-    </script>
+    <script src="tabs.js"></script>
+    <script src="notoggle.js"></script>
 </body>
 </html>
