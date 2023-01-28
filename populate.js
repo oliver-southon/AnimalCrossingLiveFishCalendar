@@ -32,7 +32,7 @@ function populateTable() {
         const headers = rows[0].split(',');
 
         // Add the data to the table
-        for (let i = 1; i < rows.length; i++) {
+        for (let i = 0; i < rows.length; i++) {
             const cells = rows[i].split(',');
             const row = document.createElement('tr');
 
