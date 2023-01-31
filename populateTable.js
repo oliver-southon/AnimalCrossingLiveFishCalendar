@@ -1,30 +1,7 @@
-// Javascript for table population
-var indexCount = 1;
-var date = new Date();
-var toggle = true;
-populateTable()
-
-const toggleBtn = document.getElementById("toggle-btn");
-let buttonClicked = false;
-
-toggleBtn.addEventListener("click", function(){
-    if (buttonClicked === false) {
-        toggle = !toggle;
-        toggleBtn.innerHTML = "Toggle: <em>Showing All Fish</em>";
-        buttonClicked = true;
-        populateTable();
-    } else {
-        toggle = !toggle;
-        toggleBtn.innerHTML = "Toggle: <em>Showing Available Fish Only</em>";
-        buttonClicked = false;
-        populateTable();
-    }
-});
-
-function populateTable() {
+function populateTable(fileName) {
     document.getElementById('january-table').querySelector('tbody').innerHTML = '';
     indexCount = 1;
-    fetch("newdata.csv")
+    fetch(fileName)
     .then(response => response.text())
     .then(data => {
         // Parse the CSV data
@@ -59,6 +36,9 @@ function populateTable() {
                 case "4am - 9pm":
                     var fishHoursArray  = [4,5,6,7,8];
                     break
+                case "9pm - 4am":
+                    var fishHoursArray  = [21,22,23,24,0,1,2,3];
+                    break
                 default:
                     var fishHoursArray = [];
             }
@@ -91,4 +71,3 @@ function populateTable() {
         }
     });
 }
-    

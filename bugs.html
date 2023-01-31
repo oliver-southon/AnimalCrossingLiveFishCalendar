@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-05fQg2vG5bZW8HpL1UZYkfv4d4Wy8i9I9U6z5UvS5nEZ2Q5f5G5n5wCvzmW2xP9" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <title>Animal Crossing Calendar</title>
+    <title>Document</title>
 </head>
 <body>
     <div class="container">
@@ -63,30 +63,6 @@
        
     </div>
     <script src="tabs.js"></script>
-    <script src="populateTable.js"></script>
-    <script>
-        // Javascript for table population
-        var indexCount = 1;
-        var date = new Date();
-        var toggle = true;
-        populateTable("newdata.csv")
-
-        const toggleBtn = document.getElementById("toggle-btn");
-        let buttonClicked = false;
-
-        toggleBtn.addEventListener("click", function(){
-            if (buttonClicked === false) {
-                toggle = !toggle;
-                toggleBtn.innerHTML = "Toggle: <em>Showing All Fish</em>";
-                buttonClicked = true;
-                populateTable("newdata.csv");
-            } else {
-                toggle = !toggle;
-                toggleBtn.innerHTML = "Toggle: <em>Showing Available Fish Only</em>";
-                buttonClicked = false;
-                populateTable("newdata.csv");
-            }
-        });
-    </script>
+    <script src="populate.js"></script>
 </body>
 </html>
