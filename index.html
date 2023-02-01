@@ -17,8 +17,8 @@
         <div class="col-12">
             <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-january-tab" data-toggle="tab" href="#nav-january" role="tab" aria-controls="nav-january" aria-selected="true">January</a>
-                <a class="nav-item nav-link" id="nav-february-tab" data-toggle="tab" href="#nav-february" role="tab" aria-controls="nav-february" aria-selected="false">February</a>
+                <a class="nav-item nav-link" id="nav-january-tab" data-toggle="tab" href="#nav-january" role="tab" aria-controls="nav-january" aria-selected="true">January</a>
+                <a class="nav-item nav-link active" id="nav-february-tab" data-toggle="tab" href="#nav-february" role="tab" aria-controls="nav-february" aria-selected="false">February</a>
                 <a class="nav-item nav-link" id="nav-march-tab" data-toggle="tab" href="#nav-march" role="tab" aria-controls="nav-march" aria-selected="false">March</a>
                 <a class="nav-item nav-link" id="nav-april-tab" data-toggle="tab" href="#nav-april" role="tab" aria-controls="nav-april" aria-selected="false">April</a>
                 <a class="nav-item nav-link" id="nav-may-tab" data-toggle="tab" href="#nav-may" role="tab" aria-controls="nav-may" aria-selected="false">May</a>
@@ -34,7 +34,7 @@
 
             <div class="tab-content">
 
-                <div class="tab-pane active" id="nav-january">
+                <div class="tab-pane" id="nav-january">
                     <button id="toggle-btn" class="btn btn-light my-1" data-bs-toggle="button" autocomplete="off">Toggle: <em>Showing Available Fish Only</em></button>
                     <table class="table" id="january-table">
                         <thead>
@@ -52,8 +52,22 @@
                       </table>
                 </div>
 
-                <div class="tab-pane" id="nav-february">
-
+                <div class="tab-pane active" id="nav-february">
+                    <table class="table" id="february-table">
+                        <button id="toggle-btn-feb" class="btn btn-light my-1" data-bs-toggle="button" autocomplete="off">Toggle: <em>Showing Available Fish Only</em></button>
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Shadow Size</th>
+                            <th scope="col">Time available</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
                 </div>
             </div>
         </div>
@@ -69,9 +83,9 @@
         var indexCount = 1;
         var date = new Date();
         var toggle = true;
-        populateTable("newdata.csv")
+        populateTable("february-table", "newdata.csv")
 
-        const toggleBtn = document.getElementById("toggle-btn");
+        const toggleBtn = document.getElementById("toggle-btn-feb");
         let buttonClicked = false;
 
         toggleBtn.addEventListener("click", function(){
@@ -79,12 +93,12 @@
                 toggle = !toggle;
                 toggleBtn.innerHTML = "Toggle: <em>Showing All Fish</em>";
                 buttonClicked = true;
-                populateTable("newdata.csv");
+                populateTable("february-table", "newdata.csv");
             } else {
                 toggle = !toggle;
                 toggleBtn.innerHTML = "Toggle: <em>Showing Available Fish Only</em>";
                 buttonClicked = false;
-                populateTable("newdata.csv");
+                populateTable("february-table", "newdata.csv");
             }
         });
     </script>

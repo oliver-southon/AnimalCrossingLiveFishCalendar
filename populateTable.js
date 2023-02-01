@@ -1,5 +1,5 @@
-function populateTable(fileName) {
-    document.getElementById('january-table').querySelector('tbody').innerHTML = '';
+function populateTable(tableName, fileName) {
+    document.getElementById(tableName).querySelector('tbody').innerHTML = '';
     indexCount = 1;
     fetch(fileName)
     .then(response => response.text())
@@ -60,11 +60,11 @@ function populateTable(fileName) {
                 // if toggle is true and its in the correct time, add it to the table
                 if (toggle == true) {
                     if (fishHoursArray.includes(curHour) == true) {
-                        document.getElementById('january-table').querySelector('tbody').appendChild(row);
+                        document.getElementById(tableName).querySelector('tbody').appendChild(row);
                         indexCount += 1;
                     }
                 } else {
-                    document.getElementById('january-table').querySelector('tbody').appendChild(row);
+                    document.getElementById(tableName).querySelector('tbody').appendChild(row);
                     indexCount += 1;
                 }
             }
