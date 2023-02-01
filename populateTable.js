@@ -1,14 +1,32 @@
-function populateTable(tableName, fileName) {
+function populateTable(tableName, fileName, headerSet=true) {
+
     document.getElementById(tableName).querySelector('tbody').innerHTML = '';
-    indexCount = 1;
+    var indexCount = 1;
     fetch(fileName)
     .then(response => response.text())
     .then(data => {
         // Parse the CSV data
         const rows = data.split('\n');
-        const headers = rows[0].split(',');
+        let headers_arr = rows[0].split(',');
+        const headers = headers_arr.map(str => str.trim());
 
-        // Add the data to the table
+        // Make header row
+        if (headerSet === false) {
+            var thead = $("<thead></thead>");
+            $('#' + tableName).append(thead); // add index col
+
+            var tr = $("<tr></tr>");
+            thead.append(tr);
+
+            tr.append($('<th scope="col">#</th>'));
+
+            headers.forEach(function(item) {
+                var th = $('<th scope="col">' + item + '</th>');
+                tr.append(th);
+            });
+        }
+
+        // // Add the data to the table
         for (let i = 0; i < rows.length; i++) {
             const cells = rows[i].split(',');
             const row = document.createElement('tr');

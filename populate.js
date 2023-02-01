@@ -22,7 +22,7 @@ toggleBtn.addEventListener("click", function(){
 });
 
 function populateTable() {
-    document.getElementById('january-table').querySelector('tbody').innerHTML = '';
+    document.getElementById(tableName).querySelector('tbody').innerHTML = '';
     indexCount = 1;
     fetch("newdata.csv")
     .then(response => response.text())
