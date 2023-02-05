@@ -31,37 +31,84 @@ function populateTable(tableName, fileName, headerSet=true) {
             const cells = rows[i].split(',');
             const row = document.createElement('tr');
 
-            var fishTime = cells[cells.length-1].trim();
+            var entityTime = cells[cells.length-1].trim();
             var curHour = date.getHours();
 
             // transform fishTime into a usable array
-            switch (fishTime) {
+            switch (entityTime) {
                 case "All day":
-                    var fishHoursArray = [];
+                    var hoursArray = [];
                     for (var k = 0; k <= 23; k++) {
-                        fishHoursArray.push(k);
+                        hoursArray.push(k);
                     }
                     break
                 case "9am - 4pm":
-                    var fishHoursArray  = [9,10,11,12,13,14,15];
+                    var hoursArray  = [9,10,11,12,13,14,15];
                     break
                 case  "9am - 4pm & 9pm - 4am":
-                    var fishHoursArray  = [9,10,11,12,13,14,15,21,22,23,0,1,2,3];
+                    var hoursArray  = [9,10,11,12,13,14,15,21,22,23,0,1,2,3];
                     break
                 case "4pm - 9am":
-                    var fishHoursArray = [16,17,18,19,20];
+                    var hoursArray = [16,17,18,19,20];
                     break
                 case "4am - 9pm":
-                    var fishHoursArray  = [4,5,6,7,8];
+                    var hoursArray  = [4,5,6,7,8];
                     break
                 case "9pm - 4am":
-                    var fishHoursArray  = [21,22,23,24,0,1,2,3];
+                    var hoursArray  = [21,22,23,0,1,2,3];
                     break
+                case "4pm - 11pm":
+                    var hoursArray  = [16,17,18,19,20,21,22];
+                    break
+                case "7pm - 8am":
+                    var hoursArray  = [19,20,21,22,23,0,1,2,3,4,5,6,7];
+                    break
+                case "4am - 7pm":
+                    var hoursArray  = [4,5,6,7,8,9,10,11,12,13,14,15,16,17,18];
+                    break
+                case "8am - 5pm":
+                    var hoursArray  = [8,9,10,11,12,13,14,15,16];
+                    break
+                case "11pm - 4pm":
+                    var hoursArray  = [23,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+                    break
+                case "7pm - 4am":
+                    var hoursArray  = [19,20,21,22,23,0,1,2,3];
+                    break
+                case "5pm - 8am":
+                    var hoursArray  = [17,18,19,20,21,22,23,0,1,2,3,4,5,6,7];
+                    break
+                case "8am - 7pm":
+                    var hoursArray  = [8,9,10,11,12,13,14,15,16,17,18];
+                    break
+                case "4am - 8am":
+                    var hoursArray  = [4,5,6,7];
+                    break
+                case "4am - 5pm":
+                    var hoursArray  = [4,5,6,7,8,9,10,11,12,13,14,15,16];
+                    break
+                case "4am - 8am & 5pm - 7pm":
+                    var hoursArray  = [4,5,6,7,17,18];
+                    break
+                case "8am - 4pm":
+                    var hoursArray  = [8,9,10,11,12,13,14,15];
+                    break
+                case "4am - 8am & 4pm - 7pm":
+                    var hoursArray  = [4,5,6,7,16,17,18];
+                    break
+                case "5pm - 4am":
+                    var hoursArray  = [17,18,19,20,21,22,23,0,1,2,3];
+                    break
+                case "11pm - 8am":
+                    var hoursArray  = [23,0,1,2,3,4,5,6,7];
+                    break
+                
                 default:
-                    var fishHoursArray = [];
+                    console.log(fileName, entityTime);
+                    var hoursArray = [];
             }
 
-            if (fishHoursArray.length > 0) { // entity exists in month
+            if (hoursArray.length > 0) { // entity exists in month
                 // add index to row
                 const th = document.createElement("th");
                 th.setAttribute("scope", "row");
@@ -77,7 +124,7 @@ function populateTable(tableName, fileName, headerSet=true) {
 
                 // if toggle is true and its in the correct time, add it to the table
                 if (toggle == true) {
-                    if (fishHoursArray.includes(curHour) == true) {
+                    if (hoursArray.includes(curHour) == true) {
                         document.getElementById(tableName).querySelector('tbody').appendChild(row);
                         indexCount += 1;
                     }
@@ -88,4 +135,69 @@ function populateTable(tableName, fileName, headerSet=true) {
             }
         }
     });
+}
+
+function getHoursArray(timeRange) {
+    var hoursArray = [];
+
+    if (timeRange === "All day") {
+        for (var k = 0; k <= 23; k++) {
+            hoursArray.push(k);
+        }
+    }
+    else if (timeRange != "Time" && timeRange !== undefined) {
+        var timeRanges = timeRange.split(" & ");
+
+        timeRanges.forEach(function(range) {
+            const [start, end] = range.split("-").map(time => time.trim());
+            let [startHours, startAmPm] = start.split(" ");
+            let [endHours, endAmPm] = end.split(" ");
+
+            startHours = Number(startHours);
+            endHours = Number(endHours);
+
+            if (startAmPm === "pm") {
+                startHours += 12;
+            }
+
+            if (endAmPm === "pm") {
+                endHours += 12;
+            }
+
+            for (let i = startHours; i < endHours; i = (i + 1) % 24) {
+                hoursArray.push(i);
+            }
+        });
+    }
+
+    return hoursArray;
+}
+
+function createInterval(timeRange) {
+    var intervalArray = [];
+
+    var timeRanges = timeRange.split(" & ");
+
+    timeRanges.forEach(function(range) {
+        const [start, end] = range.split("-").map(time => time.trim());
+        let [startHours, startAmPm] = start.split(" ");
+        let [endHours, endAmPm] = end.split(" ");
+
+        startHours = Number(startHours);
+        endHours = Number(endHours);
+
+        if (startAmPm === "pm") {
+            startHours += 12;
+        }
+
+        if (endAmPm === "pm") {
+            endHours += 12;
+        }
+
+        for (let i = startHours; i < endHours; i = (i + 1) % 24) {
+            intervalArray.push(i);
+        }
+    });
+
+    return intervalArray
 }

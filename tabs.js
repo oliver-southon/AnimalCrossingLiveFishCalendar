@@ -1,7 +1,7 @@
 // JavaScript to handle tab functionality
     
 // Get all tab buttons
-var tabBtns = document.querySelectorAll('.nav-link');
+var tabBtns = document.querySelectorAll('#nav-tab .nav-link');
 
 // Add event listener to each tab button
 tabBtns.forEach(function(btn) {
